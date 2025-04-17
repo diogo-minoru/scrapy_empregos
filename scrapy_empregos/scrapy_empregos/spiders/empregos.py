@@ -9,7 +9,7 @@ class EmpregosSpider(scrapy.Spider):
     ultima_pagina = 10
 
     def parse(self, response):
-        empregos = response.css("div.card.card-anuncio.text-dark.mb-4.shadow")
+        empregos = response.css("div.card.card-anuncio.mb-4.shadow.p-3")
         for emprego in empregos:
             yield {
                 "titulo": emprego.css("b.flex-wrap::text").get(),
