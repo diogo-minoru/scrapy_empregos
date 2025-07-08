@@ -18,7 +18,6 @@ class EmpregosSpider(scrapy.Spider):
                 "link": emprego.css("a.btn.mt-3.mt-md-0.curriculo-enviado.w-100.stretched-link.btn-primary::attr(href)").get()
             }
         
-        # Encontra o link da próxima página de forma mais robusta
         next_page = response.css('a.page-link.rounded[rel="next"]::attr(href)').get()
         
         if next_page and self.pagina_atual < self.ultima_pagina:
